@@ -53,19 +53,20 @@ app.post('/', (req, res) => {
     res.redirect('/names')
 });
 
+let players = []
+
 app.get('/names', (req, res) => {
     if (number == null) {
         return res.render('number', {
             layout: false
         });
     }
+    players = []
     res.render('names', {
         layout: false,
         number
     })
 })
-
-let players = []
 
 app.post('/names', (req, res) => {
     for (let i = 0; i < number; i++) {
